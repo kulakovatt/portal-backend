@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('firstname');
-            $table->string('lastname');
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
             $table->string('email');
             $table->string('password');
-            $table->string('gender');
-            $table->date('birthday');
+            $table->string('gender')->nullable();
+            $table->date('birthday')->nullable();
             $table->timestamps();
         });
     }
