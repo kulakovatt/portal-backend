@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('gender')->nullable();
             $table->date('birthday')->nullable();
+            $table->integer('role')->default(0);
             $table->timestamps();
         });
     }

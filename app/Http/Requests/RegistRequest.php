@@ -35,7 +35,8 @@ class RegistRequest extends FormRequest
         return [
           'email' => [
               'required' => 'Email является обязательным.',
-              'email' => 'Email некорректный.'
+              'email' => 'Email некорректный.',
+              'unique' => 'Такой email уже зарегистрирован. Войдите в аккаунт.'
           ],
           'password' => [
               'required' => 'Пароль является обязательным.',

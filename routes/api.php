@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/register', 'App\Http\Controllers\RegistController@register');
-Route::post('/info', 'App\Http\Controllers\RegistController@info');
+Route::post('/auth', 'App\Http\Controllers\AuthController@auth');
+Route::post('/info', 'App\Http\Controllers\AccountController@info');
 
 Route::get('/tours','App\Http\Controllers\ToursController@all_tours');
 Route::get('/image','App\Http\Controllers\ToursController@get_images');
