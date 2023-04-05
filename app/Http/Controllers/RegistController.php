@@ -14,7 +14,7 @@ class RegistController extends Controller
         $user->email = $req->input('email');
         $user->password = Hash::make($req->input('password'));
         $user->save();
-        return response()->json(['alert' => 'Пользователь зарегистрирован!']);
+        return response()->json(['email' => $req->input('email'), 'alert' => 'Пользователь зарегистрирован!']);
 
     }
 }
