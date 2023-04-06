@@ -13,4 +13,13 @@ class AccountController extends Controller
         $user->where('email', $email)->update(['firstname' => $req->firstname, 'lastname' => $req->lastname, 'gender' => $req->gender, 'birthday' => $req->birthday]);
         return response()->json(['alert' => 'Личная информация добавлена!']);
     }
+
+    public function get_info(Request $req){
+        $users = new Users();
+        if ($req->email){
+            $user = $users->where('email', $req->email)->get();
+        }
+
+        return response()->json(['user_data' => $user[0]]);
+    }
 }
