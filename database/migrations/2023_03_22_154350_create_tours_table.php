@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('duration');
             $table->string('residence');
-            $table->decimal('number_passengers');
+            $table->string('number_passengers');
             $table->double('price');
             $table->text('image');
             $table->timestamps();
