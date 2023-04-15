@@ -19,6 +19,7 @@ Route::post('/register', 'App\Http\Controllers\RegistController@register');
 Route::post('/auth', 'App\Http\Controllers\AuthController@auth');
 Route::post('/info', 'App\Http\Controllers\AccountController@info');
 Route::post('/booking', 'App\Http\Controllers\BookingController@ticket_reserv');
+Route::post('/submit-test', 'App\Http\Controllers\TestController@add_test_result');
 
 Route::get('/get_info','App\Http\Controllers\AccountController@get_info');
 Route::get('/get_tours_select','App\Http\Controllers\BookingController@tours_for_select');
