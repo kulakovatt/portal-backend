@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('residence');
             $table->string('number_passengers');
             $table->double('price');
+            $table->text('date_flight');
             $table->text('image');
             $table->timestamps();
         });
