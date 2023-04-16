@@ -38,7 +38,6 @@ class BookingController extends Controller
         $booking->save();
 
         Mail::send( 'mail', ['firstname' => $firstname, 'lastname' => $lastname, 'tour' => $name_tour, 'duration' => $duration, 'residence' => $residence, 'date_flight' => $date_flight, 'price' => $price], function ($message){
-
             $message->to(Session::get('email')[0])->subject('Билет');
             $message->from('portal.team.agency@gmail.com', 'Portal Agency');
         });
