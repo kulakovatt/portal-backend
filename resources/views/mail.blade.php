@@ -5,6 +5,7 @@
     <title>Ticket</title>
 </head>
 <body>
+<p>Поздравляем вы забронировали тур, ваш номер в очереди: {{ $queue }}</p>
 <table style="max-width: 600px; width: 100%; background-color:#a4f565; font: 18px Verdana;">
     <tr>
         <td colspan="2">

@@ -21,9 +21,14 @@ Route::post('/info', 'App\Http\Controllers\AccountController@info');
 Route::post('/booking', 'App\Http\Controllers\BookingController@ticket_reserv');
 Route::post('/submit-test', 'App\Http\Controllers\TestController@add_test_result');
 Route::post('/add-review', 'App\Http\Controllers\ReviewController@add_review');
+Route::post('/add-tours', 'App\Http\Controllers\ToursController@add_tours');
+Route::post('/edit-tours', 'App\Http\Controllers\ToursController@edit_tours');
+Route::post('/delete-tours', 'App\Http\Controllers\ToursController@delete_tours');
 
 Route::get('/get-reviews','App\Http\Controllers\ReviewController@get_reviews');
+Route::get('/get-passangers','App\Http\Controllers\AdminController@all_passangers');
 Route::get('/get_info','App\Http\Controllers\AccountController@get_info');
 Route::get('/get_tours_select','App\Http\Controllers\BookingController@tours_for_select');
 Route::get('/tours','App\Http\Controllers\ToursController@all_tours');
+Route::post('/get-tour','App\Http\Controllers\ToursController@get_tour_info_by_id');
 Route::get('/image','App\Http\Controllers\ToursController@get_images');

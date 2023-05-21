@@ -20,9 +20,9 @@ return new class extends Migration
             $table->text('description');
             $table->string('duration');
             $table->string('residence');
-            $table->string('number_passengers');
+            $table->integer('count_passengers');
             $table->double('price');
-            $table->text('date_flight');
+            $table->date('date_flight');
             $table->text('image');
             $table->timestamps();
         });
