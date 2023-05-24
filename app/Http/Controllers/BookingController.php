@@ -15,7 +15,7 @@ class BookingController extends Controller
 {
     public function tours_for_select(){
         $tours = new Tours();
-        return response()->json(['tours' => $tours->all()]);
+        return response()->json($tours->all());
     }
 
     public function ticket_reserv(BookingRequest $request){

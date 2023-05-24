@@ -21,18 +21,25 @@ class AdminController extends Controller
 
             // Получение пассажиров для текущего тура в обратном порядке
             $passengers = Booking::select('booking.*', 'users.firstname', 'users.lastname',
-                          'users.email', 'users.gender', 'users.birthday')
+                'users.email', 'users.gender', 'users.birthday')
                 ->join('users', 'booking.id_user', '=', 'users.id')
                 ->where('booking.id_tour', $tour->id)
                 ->orderBy('booking.created_at', 'desc')
                 ->get();
 
-            // Добавление пассажиров в подмассив для текущего тура
+            // Создание массива пассажиров для текущего тура
+            $tourPassengers = [];
 
             foreach ($passengers as $key => $passenger) {
                 $passenger->queue = count($passengers) - $key; // Определение позиции в очереди
-                $passengersByTour[$tourName][] = $passenger;
+                $tourPassengers[] = $passenger;
             }
+
+            // Добавление пассажиров в подмассив для текущего тура
+            $passengersByTour[] = [
+                'tourName' => $tourName,
+                'users' => $tourPassengers,
+            ];
         }
 
         return response()->json($passengersByTour);
