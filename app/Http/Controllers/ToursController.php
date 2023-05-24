@@ -20,9 +20,9 @@ class ToursController extends Controller
 
     public function get_tour_info_by_id(Request $req){
         $tours = new Tours();
-        $info = $tours->where('id', $req->id)->get();
+        $info = $tours->where('id', $req)->first();
 
-        if(!$info->isEmpty()){
+        if($info){
             return response()->json($info);
         }
     }
