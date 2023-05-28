@@ -44,21 +44,23 @@ class ToursController extends Controller
         return response()->json(['alert' => 'Тур успешно добавлен.']);
     }
 
-    public function edit_tours(AddToursRequest $req){
+    public function edit_tours(Request $req){
         $tours = new Tours();
 
-        if ($req->image != ''){
-            $result = $tours->where('id', $req->id)->update(['name' => $req->name, 'planet' => $req->planet,
-                'description' => $req->description, 'duration' => $req->duration, 'residence' => $req->residence,
-                'count_passengers' => $req->count_passengers, 'price' => $req->price,
-                'date_flight' => $req->date_flight, 'image' => 'Images/' . $req->image]);
+//        if ($req->image != ''){
+//            $result = $tours->where('id', $req->id)->update(['name' => $req->name, 'planet' => $req->planet,
+//                'description' => $req->description, 'duration' => $req->duration, 'residence' => $req->residence,
+//                'count_passengers' => $req->count_passengers, 'price' => $req->price,
+//                'date_flight' => $req->date_flight, 'image' => 'Images/' . $req->image]);
+//
+//        } else {
+//            $result = $tours->where('id', $req->id)->update(['name' => $req->name, 'planet' => $req->planet,
+//                'description' => $req->description, 'duration' => $req->duration, 'residence' => $req->residence,
+//                'count_passengers' => $req->count_passengers, 'price' => $req->price,
+//                'date_flight' => $req->date_flight]);
+//        }
 
-        } else {
-            $result = $tours->where('id', $req->id)->update(['name' => $req->name, 'planet' => $req->planet,
-                'description' => $req->description, 'duration' => $req->duration, 'residence' => $req->residence,
-                'count_passengers' => $req->count_passengers, 'price' => $req->price,
-                'date_flight' => $req->date_flight]);
-        }
+        $result = $tours->where('id', $req->id)->update(['description' => $req->description]);
 
         if($result){
             return response()->json(['alert' => 'Тур успешно изменен.']);

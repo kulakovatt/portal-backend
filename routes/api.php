@@ -26,11 +26,12 @@ Route::post('/failure-review', 'App\Http\Controllers\ReviewController@failure_re
 Route::post('/add-tours', 'App\Http\Controllers\ToursController@add_tours');
 Route::post('/edit-tours', 'App\Http\Controllers\ToursController@edit_tours');
 Route::post('/delete-tours', 'App\Http\Controllers\ToursController@delete_tours');
+Route::post('/get-points', 'App\Http\Controllers\TestController@get_points_users');
 
 Route::get('/get-reviews','App\Http\Controllers\ReviewController@get_reviews');
 Route::get('/get-admin-reviews','App\Http\Controllers\ReviewController@all_admin_reviews');
 Route::get('/get-passangers','App\Http\Controllers\AdminController@all_passangers');
-Route::get('/get_info','App\Http\Controllers\AccountController@get_info');
+Route::post('/get_info','App\Http\Controllers\AccountController@get_info');
 Route::get('/get_tours_select','App\Http\Controllers\BookingController@tours_for_select');
 Route::get('/tours','App\Http\Controllers\ToursController@all_tours');
 Route::post('/get-tour','App\Http\Controllers\ToursController@get_tour_info_by_id');

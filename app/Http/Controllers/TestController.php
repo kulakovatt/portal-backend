@@ -105,4 +105,13 @@ class TestController extends Controller
         $test_result->save();
         return response()->json(['result' => $all_points, 'alert' => 'Тест пройден успешно!']);
     }
+
+    public function get_points_users(Request $req){
+        $tests = new Test();
+        $users = new Users();
+        $id_user = $users->where('email', $req->email)->get('id')[0]->id;
+        $test_result = $tests->where('id_user', $id_user)->get('points')[0]->points;
+
+        return response()->json($test_result);
+    }
 }

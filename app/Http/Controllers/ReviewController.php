@@ -24,7 +24,7 @@ class ReviewController extends Controller
         $review = new Reviews();
         $users = new Users();
         $review_users = [];
-        $reviews = $review->where('approval', 1)->get();
+        $reviews = $review->get();
         foreach ($reviews as $item){
             $firstname = $users->where('id', $item->id_user)->get('firstname')[0]->firstname;
             $lastname = $users->where('id', $item->id_user)->get('lastname')[0]->lastname;
@@ -59,7 +59,7 @@ class ReviewController extends Controller
 
     public function all_admin_reviews(){
         $reviews = new Reviews();
-        $reviews = $reviews->orderBy('approval', 'asc')->orderBy('created_at', 'desc')->get();
+        $reviews = $reviews->orderBy('created_at', 'desc')->get();
         $users = new Users();
         $review_users = [];
         foreach ($reviews as $item){
@@ -67,9 +67,9 @@ class ReviewController extends Controller
             $lastname = $users->where('id', $item->id_user)->get('lastname')[0]->lastname;
             $date = date_format($item->created_at,"d.m.Y");
             array_push($review_users, ['id' => $item->id, 'firstname' => $firstname, 'lastname' => $lastname, 'date' => $date,
-                'review' => $item->review, 'approval' => $item->approval]);
+                'review' => $item->review]);
         }
 
-        return response()->json(['reviews' => $review_users]);
+        return response()->json($review_users);
     }
 }
