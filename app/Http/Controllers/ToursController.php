@@ -38,7 +38,8 @@ class ToursController extends Controller
         $tours->count_passengers = $req->count_passengers;
         $tours->price = $req->price;
         $tours->date_flight = $req->date_flight;
-        $tours->image = $req->image;
+        $image = pathinfo($req->image, PATHINFO_BASENAME);
+        $tours->image = '/Images/'.$image;
 
         $tours->save();
         return response()->json(['alert' => 'Тур успешно добавлен.']);
